@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
 import {server} from '../index'
-import {Container, HStack} from '@chakra-ui/react'
+import {Container, HStack, VStack,Image,Text,Heading} from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react'
 import Loader from './Loader'
 
@@ -28,7 +28,14 @@ const Exchanges = () => {
     <HStack wrap={"wrap"}>
 
       {exchanges.map((i)=>(
-        <ExchangeCard />  /*For maping all the elements into one format */
+        <ExchangeCard 
+        key={i.id}
+        name={i.name}
+        img={i.image}
+        rank={i.trust_score_rank}
+        url={i.url}
+
+        />  /*For maping all the elements into one format */
 
       ))}
     </HStack>
@@ -40,9 +47,17 @@ const Exchanges = () => {
   
 }
 
-const ExchangeCard=()=>(
-  <a>
-    
+const ExchangeCard=({name,img,rank,url})=>(
+  <a href={url } target={'blank'}> {/*We not using link to as this will be an external link so we have to use anchor tag instead of link to */}
+  <VStack w={'52'}  shadow={'lg'} p={'8'} borderRadius={'lg'} transition={'all 0.3s'}  m={'4'}>
+    <Image src={img} w={'10'} h={'10'} objectFit={'contain'}
+    alt={'exchange'}
+    />
+  <Heading size={'md'} noOfLines={1}>{rank}</Heading>
+  <Text noOfLines={1} >{name}</Text>
+
+  </VStack>
+
   </a>
 
 )
