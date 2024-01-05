@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
 import {server} from '../index'
-import {Container, HStack, VStack,Image,Text,Heading} from '@chakra-ui/react'
+import {Container, HStack, VStack,Image,Text,Heading, Button} from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react'
 import Loader from './Loader'
 import Error from './Error'
@@ -17,6 +17,12 @@ const Coins = () => {
 
   const currencySymbol=currency==='inr'?'₹':currency==='eur'?'€':'$'
 
+  const changePage=(page)=>{
+    setPage(page);
+    setLoading(true);
+  }
+
+  const btns=new Array(132).fill(1)
   useEffect(()=>{
 
     const fetchCoins = async()=>{
@@ -57,6 +63,20 @@ const Coins = () => {
         />  /*For maping all the elements into one format */
 
       ))}
+    </HStack>
+    <HStack w={'full'} overflowX={'auto'} p={'8'}>
+      {
+        btns.map((items,index)=>(
+          <Button
+          bgColor={'blackAlpha.900'}
+          color={'white'}
+          onClick={()=>changePage(index+1)}
+        
+          >
+            {index+1}
+          </Button>
+        ))
+      }
     </HStack>
     
     </>}
