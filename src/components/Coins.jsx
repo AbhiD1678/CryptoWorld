@@ -6,6 +6,7 @@ import { chakra } from '@chakra-ui/react'
 import Loader from './Loader'
 import Error from './Error'
 import CoinCard from './CoinCard'
+import { RadioGroup } from '@chakra-ui/react'
 
 const Coins = () => {
 
@@ -46,7 +47,8 @@ const Coins = () => {
   },[currency,page])
   if(error) return <Error message={"Error while fetching Coins"}/>
 
-  return  <Container maxW={'cointainer.xl'}>
+  return 
+   <Container maxW={'cointainer.xl'}>
     {loading ? <Loader/>:<>
     <HStack wrap={"wrap"}>
 
