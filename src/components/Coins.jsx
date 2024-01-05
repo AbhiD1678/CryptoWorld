@@ -5,6 +5,7 @@ import {Container, HStack, VStack,Image,Text,Heading} from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react'
 import Loader from './Loader'
 import Error from './Error'
+import CoinCard from './CoinCard'
 
 const Coins = () => {
 
@@ -13,6 +14,8 @@ const Coins = () => {
   const [error,setError]=useState(false)
   const [page,setPage]=useState(1);
   const [currency,setCurrency]=useState('inr');
+
+  const currencySymbol=currency==='inr'?'₹':currency==='eur'?'€':'$'
 
   useEffect(()=>{
 
@@ -42,12 +45,14 @@ const Coins = () => {
     <HStack wrap={"wrap"}>
 
       {coins.map((i)=>(
-        <ExchangeCard 
+        <CoinCard 
+        id={i.id}
         key={i.id}
         name={i.name}
+        price={i.current_price}
         img={i.image}
-        rank={i.trust_score_rank}
-        url={i.url}
+        symbol={i.symbol}
+        currencySymbol={currencySymbol}
 
         />  /*For maping all the elements into one format */
 
