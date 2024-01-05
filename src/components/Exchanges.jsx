@@ -68,7 +68,7 @@ const ExchangeCard=({name,img,rank,url})=>(
     }
   }}
   
-  >
+    >
     <Image src={img} w={'10'} h={'10'} objectFit={'contain'}
     alt={'exchange'}
     />
