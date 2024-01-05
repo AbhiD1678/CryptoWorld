@@ -20,7 +20,7 @@ const CoinCard=({id,name,img,symbol,price})=>(
   
     </VStack>
   
-    </a>
+    </Link>
   
   )
   
