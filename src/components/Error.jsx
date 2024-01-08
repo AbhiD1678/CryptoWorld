@@ -1,4 +1,4 @@
-import { Alert } from '@chakra-ui/react'
+import { Alert,AlertIcon} from '@chakra-ui/react'
 import React from 'react'
 
 const Error = ({message}) => {
