@@ -50,7 +50,7 @@ const Coins = () => {
   return( 
    <Container maxW={'cointainer.xl'}>
     {loading ? <Loader/>:<>
-    <RadioGroup value={currency}>
+    <RadioGroup value={currency} onChange={setCurrency} p={'8'}>
       <HStack spacing={'4'}>
         <Radio value={'inr'}  >INR</Radio>
         <Radio value={'usd'}  >USD</Radio>
@@ -59,7 +59,7 @@ const Coins = () => {
       </HStack>
 
     </RadioGroup>
-    <HStack wrap={"wrap"}>
+    <HStack wrap={"wrap"} justifyContent={'space-evenly'}>
 
       {coins.map((i)=>(
         <CoinCard 
@@ -79,6 +79,7 @@ const Coins = () => {
       {
         btns.map((items,index)=>(
           <Button
+          key={index}
           bgColor={'blackAlpha.900'}
           color={'white'}
           onClick={()=>changePage(index+1)}
