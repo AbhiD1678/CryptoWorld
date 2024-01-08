@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Image, Radio, RadioGroup, Stat, StatLabel, StatNumber, Text, VStack } from '@chakra-ui/react'
+import { Badge, Box, Container, HStack, Image, Progress, Radio, RadioGroup, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, VStack } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import Loader from './Loader'
 import { useState } from 'react'
@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { server } from '..'
 import Error from './Error'
+
+
 
 
 
@@ -22,6 +24,8 @@ const CoinDetails = () => {
   const [currency,setCurrency]=useState('inr');
 
   const params=useParams()
+
+  const currencySymbol=currency==='inr'?'₹':currency==='eur'?'€':'$'
 
   useEffect(()=>{
 
@@ -55,7 +59,6 @@ const CoinDetails = () => {
       (
       <>
         <Box width={'full'} borderWidth={1}>
-          adas
         </Box>
 
       <RadioGroup value={currency} onChange={setCurrency} p={'8'} justifyContent={'space-between'}>
@@ -77,8 +80,36 @@ const CoinDetails = () => {
         <StatLabel>
           {coins.name}
         </StatLabel>
-        <StatNumber>asd</StatNumber>
+        <StatNumber>
+          {currencySymbol}
+          {coins.market_data.current_price[currency]}</StatNumber>
+          <StatHelpText>
+            <StatArrow 
+            type={
+              coins.market_data.price_change_percentage_24h > 0 
+              ? 'increase'
+              :'decrease'}/ >
+              {coins.market_data.price_change_percentage_24h} %
+
+
+          </StatHelpText>
       </Stat>
+      <Badge
+      fontSize={'2xl'}
+      bgColor={'blackAlpha.800'}
+      color={'white'}
+      >
+        {`#${coins.market_cap_rank}`}
+      </Badge>
+      <CustomBar high={`${currencySymbol}${coins.market_data.high_24h[currency]}`} low={`${currencySymbol}${coins.market_data.low_24h[currency]}`} />
+      
+      <Box w={'full'} p='4'>
+        <Item title={'Max Supply'} value={coins.market_data.max_supply}/>
+        <Item title={'Circulating Supply'} value={coins.market_data.max_supply}/>
+        <Item title={'Market Cap'} value={`${currencySymbol}${coins.market_data.market_cap[currency]}`}/>
+        <Item title={'All Time Low'} value={`${currencySymbol}${coins.market_data.atl[currency]}`}/>
+        <Item title={'All Time High'} value={`${currencySymbol}${coins.market_data.ath[currency]}`}/>
+      </Box>
       
       </VStack>
       </>
@@ -89,4 +120,23 @@ const CoinDetails = () => {
   )  
 }
 
+
+const Item=({title,value})=>(
+  <HStack justifyContent={'space-between'} w={'full'} my={'4'}>
+    <Text fontFamily={'Bebas Neue'} letterSpacing={'widest'}>{title}</Text>
+    <Text>{value}</Text>
+  </HStack>
+
+)
+const CustomBar=({high,low})=>(
+  <VStack w={'full'}>
+    <Progress value={50} colorScheme={'teal'} w={'full'} />
+    <HStack justifyContent={'space-between'} w={'full'}>
+      <Badge children={low} colorScheme={'red'} />
+      <Text fontSize={'small'}>24H Range</Text>
+      <Badge children={high} colorScheme={'green'} />
+    </HStack>
+
+  </VStack>
+)
 export default CoinDetails
