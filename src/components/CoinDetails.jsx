@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { server } from '..'
 import Error from './Error'
+import Chart from './Chart'
 
 
 
@@ -59,6 +60,7 @@ const CoinDetails = () => {
       (
       <>
         <Box width={'full'} borderWidth={1}>
+          <Chart currency={currencySymbol} />
         </Box>
 
       <RadioGroup value={currency} onChange={setCurrency} p={'8'} justifyContent={'space-between'}>
