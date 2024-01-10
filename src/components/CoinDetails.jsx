@@ -1,4 +1,4 @@
-import { Badge, Box, Container, HStack, Image, Progress, Radio, RadioGroup, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, VStack } from '@chakra-ui/react'
+import { Badge, Box, Button, Container, HStack, Image, Progress, Radio, RadioGroup, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, VStack } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import Loader from './Loader'
 import { useState } from 'react'
@@ -29,7 +29,49 @@ const CoinDetails = () => {
   const params=useParams()
 
   const currencySymbol=currency==='inr'?'₹':currency==='eur'?'€':'$'
+  const btns=['24h','7d','14d','30d','60d','200d','1y','max']
 
+  const switchChartStats=(key)=>{
+    switch (key) {
+      case '24h':
+        setDays('24h')
+      
+        break;
+      case '7d':
+        setDays('7d')
+  
+        break;
+      case '14d':
+        setDays('14d')
+
+        break;
+      case '30d':
+        setDays('30d')
+  
+        break;
+      case '60d':
+        setDays('60d')
+
+        break;
+      case '200d':
+        setDays('200d')
+        
+        break;  
+      case '1y':
+        setDays('365d')
+   
+        break;
+      case 'max':
+        setDays('max')
+ 
+        break;
+      default:
+        setDays('24h')
+        break;
+    }
+
+
+  }
   useEffect(()=>{
 
     
@@ -54,7 +96,7 @@ const CoinDetails = () => {
     };
     fetchCoins()
     
-  },[params.id,currency])
+  },[params.id,currency,days])
   if (error) return <Error message={'Error while Fetching Coin Detail'} />
 
   return( 
@@ -65,9 +107,19 @@ const CoinDetails = () => {
       (
       <>
         <Box width={'full'} borderWidth={1}>
-          <Chart arr={chartArray} currency={currency} days={days}/>
+          <Chart arr={chartArray} currency={currencySymbol} days={days}/>
         </Box>
+        <HStack p='4' wrap={'wrap'}>
+          {
+            btns.map((i)=>(
+              <Button key={i}  onClick={()=>switchChartStats(i)}>
+                {i}
+              </Button>
+            ))
+          }
 
+
+        </HStack>
       <RadioGroup value={currency} onChange={setCurrency} p={'8'} justifyContent={'space-between'}>
       <HStack spacing={'4'}>
         <Radio value={'inr'}  >INR</Radio>
