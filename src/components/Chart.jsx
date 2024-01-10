@@ -20,9 +20,25 @@ ChartJS.register(
     Legend)
 
 const Chart = ({arr=[],currency,days}) => {
-    const price =[1,2,3]
-    const date=['12/2/22','23/2/24','32/4/54']
+    const prices =[]
+    const date=[]
+    for (let i = 0; i < arr.length; i++) {
+      if(days==='24h') date.push(new Date(arr[i][0]).toLocaleTimeString())
+      else date.push(new Date(arr[i][0]).toLocaleDateString())
+      
+      prices.push(arr[i][1])
+      
+    }
+    console.log(date)
+
+  
     const data={
+      labels:date,
+      datasets:[{
+        label:`Price in ${currency}`,
+        data:prices,borderColor:'rgb(225,99,132)',
+        backgroundColor:'rgba(255,99,132,0.5)'
+    }]
 
     }
 
@@ -31,15 +47,7 @@ const Chart = ({arr=[],currency,days}) => {
     options={{
         responsive:true
   }}
-  data={{
-    labels:date,
-    datasets:[{
-        label:`Price in ${currency}`,
-        data:price,borderCOlor:'rgb(225,99,132)',
-        backgroundColor:'rgba(255,99,132,0.5)'
-    }]
-  
-  }}/>
+  data={data}/>
   )
 }
 

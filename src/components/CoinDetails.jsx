@@ -23,6 +23,8 @@ const CoinDetails = () => {
   const [error,setError]=useState(false)
   const [page,setPage]=useState(1);
   const [currency,setCurrency]=useState('inr');
+  const [days,setDays]=useState("24h")
+  const [chartArray,setChartArray]=useState([])
 
   const params=useParams()
 
@@ -34,8 +36,11 @@ const CoinDetails = () => {
     const fetchCoins = async()=>{
       try{
       const {data}=await axios.get(`${server}/coins/${params.id}`);
-      console.log(data)
+
+      const {data:chartData}=await axios.get(`${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=${days}`)
+      
       setCoins(data)
+      setChartArray(chartData.prices)
       setLoading(false)
 
 
@@ -49,7 +54,7 @@ const CoinDetails = () => {
     };
     fetchCoins()
     
-  },[params.id])
+  },[params.id,currency])
   if (error) return <Error message={'Error while Fetching Coin Detail'} />
 
   return( 
@@ -60,7 +65,7 @@ const CoinDetails = () => {
       (
       <>
         <Box width={'full'} borderWidth={1}>
-          <Chart currency={currencySymbol} />
+          <Chart arr={chartArray} currency={currency} days={days}/>
         </Box>
 
       <RadioGroup value={currency} onChange={setCurrency} p={'8'} justifyContent={'space-between'}>
