@@ -1,5 +1,8 @@
 import { Avatar, Box, Stack, VStack,Text} from '@chakra-ui/react'
 import React from 'react'
+import avatarSrc from '../Assets/edit.png'
+
+
 
 
 const Footer = () => {
@@ -18,8 +21,9 @@ const Footer = () => {
                     We are the best app for monitoring about Cryptocurrency</Text>
                 </VStack>
                 <VStack>
-                    <Avatar boxSize={'28'} mt={['4','0']} />
-                    <Text>Website  Developer</Text>
+                    <Avatar boxSize={'28'} mt={['4','0']} src={avatarSrc} />
+                    <Text>Developed By
+                      Abhishek Dubey</Text>
                 
             </VStack>
         </Stack>
