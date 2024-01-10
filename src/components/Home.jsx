@@ -1,7 +1,7 @@
 import { Text,Box,Image } from '@chakra-ui/react'
 import React from 'react'
 import bg from '../Assets/btc.png'
-import { motion } from 'framer-motion'
+import { motion} from 'framer-motion'
 
 const Home = () => {
   return (
@@ -11,16 +11,18 @@ const Home = () => {
         height:'80vh'
       }}
       animate={{
-        translateY:'20p'
+        translateY:'20px'
       }}
       transition={{
         duration:2,
         repeat:Infinity,
-        repeatType:'reverse'
+        repeatType:'reverse',
       }}
       >
-      <Image w={'full'} h={'full'} objectFit={'contain'} src={bg} filter={'grayscale(1)'} />
-      </motion.div>
+      <Image 
+      w={'full'} 
+      h={'full'} 
+      objectFit={'contain'} src={bg} filter={'grayscale(1)'} />
       <Text fontSize={'6xl'}
       textAlign={'center'}
       fontWeight={'thin'}
@@ -29,6 +31,8 @@ const Home = () => {
     >
       CryptoWorld
     </Text>
+      </motion.div>
+      
     </Box>
   )
 }
