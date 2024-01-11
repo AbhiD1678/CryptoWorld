@@ -1,6 +1,6 @@
 import { Avatar, Box, Stack, VStack,Text} from '@chakra-ui/react'
 import React from 'react'
-import avatarSrc from '../Assets/edit.png'
+import avatarSrc from '../Assets/pp3.jpeg'
 
 
 
