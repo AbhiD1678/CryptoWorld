@@ -1,74 +1,70 @@
-Website hosted on https://ad-cryptoworld.netlify.app/
-# Getting Started with Create React App
+<h1 align="center" id="title">CryptoWorld</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://socialify.git.ci/AbhiD1678/CryptoWorld/image?description=1&amp;descriptionEditable=A%20website%20to%20know%20real-time%20update%20about%20the%20crypto%20world%2C%20where%20you%20can%20find%20real-time%20update%20for%20cryptocurrencies%20and%20crypto%20trading%20platform%20&amp;language=1&amp;name=1&amp;owner=1&amp;theme=Light" alt="project-image"></p>
 
-## Available Scripts
+<h2>🚀 Demo</h2>
 
-In the project directory, you can run:
+[https://ad-cryptoworld.netlify.app/](https://ad-cryptoworld.netlify.app/)
+<h3>PS:If the page is showing error,please refresh it after a few minutes</h3>
 
-### `npm start`
+<h2>Project Screenshots:</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="src/Assets/Capture.PNG" alt="project-screenshot" />
+<p><h4>The home page of the website</h4></p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="src/Assets/Capture_2.PNG" alt="project-screenshot"/>
+<p><h4>The Exchanges Page, where you can find all the top cryptocurrencies trading platforms according to your country </h4></p>
 
-### `npm test`
+<img src="src/Assets/Capture3.PNG" alt="project-screenshot" />
+<p><h4>The Coins Page, where you can find all the cryptocurrencies and their current price</h4></p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="src/Assets/4.PNG" alt="project-screenshot" />
+<p><h4>Showing the value of cryptocurrencies in euros.</h4></p>
 
-### `npm run build`
+<img src="src/Assets/5.PNG" alt="project-screenshot" />
+<p><h4>The Coin Page, where you can see the price graph of the particular cryptocurrency. You can also customise the duration of the graph and the currency as well for the given cryptocurrency</h4></p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="src/Assets/6.PNG" alt="project-screenshot" />
+<p><h4> Real-time data of a particular Coin showed on its page just below the graph</h4></p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h2>🛠️ Installation Steps:</h2>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>1. Clone this repository</p>
 
-### `npm run eject`
+```
+git clone https://github.com/AbhiD1678/CryptoWorld.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p>2. Navigate to the project directory</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+cd CryptoWorld
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>3. Install dependencies</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+npm install
+```
 
-## Learn More
+<p>4. Start the development server</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  
+  
+<h2>💻 Built with</h2>
 
-### Code Splitting
+Technologies used in the project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*   React
+*   Chakra Ui
+*   Chartjs
+*   React-Router-Dom
+*   Axios
 
-### Analyzing the Bundle Size
+<h2>🛡️ License:</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Blockchain-webapp
->>>>>>> 46a8badc5545c11d53f5ecd648266a3b8af49518
+This project is licensed under the Mit License
