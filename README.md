@@ -64,6 +64,7 @@ Technologies used in the project:
 *   Chartjs
 *   React-Router-Dom
 *   Axios
+*   Framer-Motion
 
 <h2>🛡️ License:</h2>
 
