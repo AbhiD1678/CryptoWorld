@@ -11,30 +11,37 @@ const Exchanges = () => {
   const [exchanges,setExchanges]=useState([])
   const [loading,setLoading]=useState(true) /*So we are making a loading component to cover up for the time taken for fetching and that is the reason why we are making this variable */
   const [error,setError]=useState(false)
+  const [isRateLimit, setIsRateLimit] = useState(false)
 
   useEffect(()=>{
 
     const fetchExchanges = async()=>{
       try{
-      const {data}=await axios.get(`${server}/exchanges?`);
-      
-
-      setExchanges(data)
-      setLoading(false)
-
-
+        setError(false);
+        setIsRateLimit(false);
+        const {data}=await axios.get(`${server}/exchanges?`);
+        
+        setExchanges(data)
+        setLoading(false)
 
       }catch(error){
         setLoading(false);
-        setError(true);
+        // Check if it's a rate limit error (429 status code or specific error message)
+        if (error.response?.status === 429 || 
+            error.response?.data?.error?.includes('rate limit') ||
+            error.message?.includes('rate limit') ||
+            error.response?.status === 403) {
+          setIsRateLimit(true);
+        } else {
+          setError(true);
+        }
       }
-
-      
     };
     fetchExchanges()
     
   },[])
   if(error) return <Error message={"Error while fetching Exchanges"}/>
+  if(isRateLimit) return <Error isRateLimit={true} />
 
   return  <Container maxW={'cointainer.xl'}>
     {loading ? <Loader/>:<>
