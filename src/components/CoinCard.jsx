@@ -82,8 +82,8 @@ const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "₹", priceC
               >
                 {name}
               </Text>
-            </VStack>
-
+    </VStack>
+  
             <VStack spacing={1} align="stretch">
               <Heading size={'lg'} noOfLines={1} color={textColor}>
                 {price ? `${currencySymbol}${price.toLocaleString()}` : "N/A"}
@@ -100,7 +100,7 @@ const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "₹", priceC
             </VStack>
           </VStack>
         </Box>
-      </Link>
+    </Link>
     </motion.div>
   )
 }

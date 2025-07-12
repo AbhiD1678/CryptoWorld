@@ -36,8 +36,11 @@ const Home = () => {
           h={'full'} 
           objectFit={'contain'} 
           src={bg} 
-          filter={'grayscale(0.7) brightness(0.3) contrast(1.1)'} 
-          opacity={0.6}
+          filter={'grayscale(0.5) brightness(0.5) contrast(1.2)'} 
+          opacity={0.8}
+          fallbackSrc="https://via.placeholder.com/800x600?text=Bitcoin+Image"
+          onError={(e) => console.error('Image failed to load:', e)}
+          onLoad={() => console.log('Image loaded successfully')}
         />
       </motion.div>
 
@@ -49,11 +52,11 @@ const Home = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.9) 100%)',
+          background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.7) 100%)',
           zIndex: 1
         }}
         animate={{
-          opacity: [0.7, 0.8, 0.7]
+          opacity: [0.3, 0.4, 0.3]
         }}
         transition={{
           duration: 6,

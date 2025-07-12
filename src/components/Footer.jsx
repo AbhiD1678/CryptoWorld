@@ -11,9 +11,9 @@ const Footer = () => {
     <Box 
       bgColor={bgColor} 
       color={textColor} 
-      minH={'48'}
-      px={'16'}
-      py={['16','8']}
+    minH={'48'}
+    px={'16'}
+    py={['16','8']}
       borderTop="1px solid"
       borderColor="whiteAlpha.200"
     >
@@ -22,7 +22,7 @@ const Footer = () => {
           <Text fontWeight={'bold'} fontSize="lg" color={accentColor}>
             About CryptoWorld
           </Text>
-          <Text fontSize={'sm'} letterSpacing={'widest'} 
+                <Text fontSize={'sm'} letterSpacing={'widest'} 
             textAlign={['center','left']} maxW="400px">
             Your trusted platform for real-time cryptocurrency tracking, market analysis, and blockchain insights. 
             Stay informed with accurate data and comprehensive market coverage.
@@ -38,7 +38,7 @@ const Footer = () => {
               • 1000+ cryptocurrencies
             </Text>
           </HStack>
-        </VStack>
+                </VStack>
         
         <VStack spacing={4}>
           <Avatar boxSize={'20'} src={avatarSrc} border="2px solid" borderColor={accentColor} />
@@ -53,9 +53,9 @@ const Footer = () => {
               Full Stack Developer
             </Text>
           </VStack>
-        </VStack>
-      </Stack>
-      
+            </VStack>
+        </Stack>
+
       <Box mt={8} pt={4} borderTop="1px solid" borderColor="whiteAlpha.200">
         <Text fontSize="xs" textAlign="center" color="whiteAlpha.500">
           © 2024 CryptoWorld. All rights reserved. | 

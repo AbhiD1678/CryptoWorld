@@ -19,7 +19,7 @@ const Loader = () => {
             thickness="4px"
             speed="0.65s"
           />
-        </Box>
+    </Box>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const Loader = () => {
           Loading cryptocurrency data...
         </Text>
       </motion.div>
-    </VStack>
+  </VStack>
   )
 }
 
